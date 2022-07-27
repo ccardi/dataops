@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pandas-to-bq11
+spec:
+  template:
+    spec:
+      containers:
+      - name: pandas-to-bq
+        image: gcr.io/pod-fr-retail/k8_operators/py_pandas_bq
+        command: ["python3",  "/pandas_to_bq.py"]
+        resources:
+            requests:
+                memory: "64Mi"
+                cpu: "250m"
+            limits:
+                memory: "128Mi"
+                cpu: "500m"
+        env:
+        - name: TEST_VARIABLE
+          value: "hello world"
+      restartPolicy: Never

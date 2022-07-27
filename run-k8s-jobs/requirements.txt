@@ -1,0 +1,9 @@
+Flask==2.0.2
+requests==2.26.0
+ptvsd==4.3.2 # Required for debugging.
+google-cloud-logging
+waitress
+kubernetes
+google-api-python-client
+google-cloud-container
+google-cloud-storage
