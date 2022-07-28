@@ -22,4 +22,4 @@ gcloud run deploy $JOB \
 # Trigger your Cloud Run Service or copy run_params.json in your pubsub trigger (see: pubsub-cloud-run-jobs)
 curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -H "Content-Type: application/json"  -d @run_params.json https://run-k8s-jobs-454dfk63ya-ew.a.run.app
 gcloud pubsub topics publish projects/pod-fr-retail/topics/pubsub-cloud-run-jobs \
-  --message={}
+  --message={copy run_params.json}
