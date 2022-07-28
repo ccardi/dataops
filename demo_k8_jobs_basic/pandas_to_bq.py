@@ -19,5 +19,5 @@ df = pandas.DataFrame(
     }
 )
 
-pandas_gbq.to_gbq(df, table_id, project_id=project_id, location=location, if_exists='replace')
+pandas_gbq.to_gbq(df, table_id, project_id=project_id, location=location, if_exists='append')
 print('================ End ==================')
