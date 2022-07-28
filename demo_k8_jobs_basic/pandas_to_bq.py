@@ -3,11 +3,14 @@ import pandas
 import pandas_gbq
 
 print('================ Start ==================')
+
 test_variable = os.environ['TEST_VARIABLE']
+print(test_variable)
+
 project_id = "pod-fr-retail"
 table_id = 'demo_supply_eu_test.panda'
 location='EU'
-print(test_variable)
+
 df = pandas.DataFrame(
     {
         "my_string": [test_variable, "abc", "abc"],
