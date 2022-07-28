@@ -1,4 +1,4 @@
-cd Jobs/demo_k8_jobs_basic
+cd dataops
 git add .
 git commit -m "update"
 git push -u origin master
