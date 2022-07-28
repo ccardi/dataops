@@ -3,6 +3,6 @@
     ,"region":"europe-west1"
     ,"gkeClusterName":"autopilot-cluster-2"
     ,"jobStorageBucket":"pod-fr-retail-jobs-conf"
-    ,"jobPathName":"job.yaml"
+    ,"jobPathName":"template_jobs_yaml/job.yaml"
     ,"jobRootName":"pandas-to-bq-"
 }

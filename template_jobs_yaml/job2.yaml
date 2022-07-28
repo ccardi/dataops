@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pandas-to-bq-basic3
+spec:
+  template:
+    spec:
+      containers:
+      - name: pandas-to-bq-basic3
+        image: europe-west1-docker.pkg.dev/pod-fr-retail/demok8/demo_k8_jobs_basic
+        command: ["python3",  "/pandas_to_bq.py"]
+        resources:
+            requests:
+                memory: "10Mi"
+                cpu: "100m"
+            limits:
+                memory: "10Mi"
+                cpu: "100m"
+        env:
+        - name: TEST_VARIABLE
+          value: "hello new job 2"
+      restartPolicy: Never
