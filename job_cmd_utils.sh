@@ -23,5 +23,4 @@ gcloud run deploy $JOB \
 
 cd ..
 
-curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -H "Content-Type: application/json"  -d '{"projectId":"pod-fr-retail","region":"europe-west1", "gkeClusterName":"autopilot-cluster-2", "jobStorageBucket":"pod-fr-retail-jobs-conf","jobPathName":"job.yaml", "jobRootName":"pandas-to-bq-"}' https://run-k8s-jobs-454dfk63ya-ew.a.run.app
-{"projectId":"pod-fr-retail","region":"europe-west1", "gkeClusterName":"autopilot-cluster-2", "jobStorageBucket":"pod-fr-retail-jobs-conf","jobPathName":"job.yaml", "jobRootName":"pandas-to-bq-"}
+curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -H "Content-Type: application/json"  -d @run_params.json https://run-k8s-jobs-454dfk63ya-ew.a.run.app
