@@ -1,0 +1,11 @@
+steps:
+  # Build the container image
+  #- name: 'gcr.io/cloud-builders/docker'
+  #  args: ['build', '-t', 'europe-west1-docker.pkg.dev/pod-fr-retail/demok8/run-k8s-jobs', '.']
+  # Push the container image to Container Registry
+  #- name: 'gcr.io/cloud-builders/docker'
+  #  args: ['push', 'europe-west1-docker.pkg.dev/pod-fr-retail/demok8/run-k8s-jobs:latest']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'run-k8s-jobs', '--image', 'europe-west1-docker.pkg.dev/pod-fr-retail/demok8/run-k8s-jobs:latest', '--region', 'europe-west1']
