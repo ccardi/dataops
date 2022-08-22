@@ -13,7 +13,7 @@ location='EU'
 
 df = pandas.DataFrame(
     {
-        "my_string": [test_variable, "abc", "abc"],
+        "my_string": [test_variable, "abcd", "abcd"],
         "my_int64": [1, 2, 3],
         "my_float64": [4.0, 5.0, 6.0],
         "my_bool1": [True, False, True],
