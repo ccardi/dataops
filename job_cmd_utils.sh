@@ -1,3 +1,5 @@
+#gh auth login
+
 cd dataops
 git add .
 git commit -m "update"
