@@ -7,7 +7,7 @@ git push -u origin master
 
 # Connect to your gke cluster and apply a job
 gcloud container clusters get-credentials autopilot-cluster-2 --region europe-west1 --project pod-fr-retail
-kubectl apply -f job.yaml 
+kubectl apply -f job-unzip.yaml 
 
 # Deploy Run Jobs - Method 1: Build and deploy your Cloud Run Service to trigger a job on GKE (test it with curl or pubsub)
 cd run-k8s-jobs
@@ -29,3 +29,11 @@ curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" -H "Content-
 
 gcloud pubsub topics publish projects/pod-fr-retail/topics/pubsub-cloud-run-jobs \
   --message=
+
+
+# Build k8 Jobs - unzip
+cd demo_k8_jobs_unzip_gcs
+PROJECT=pod-fr-retail
+JOB=demo_k8_jobs_unzip_gcs
+gcloud config set project $PROJECT
+gcloud builds submit --tag europe-west1-docker.pkg.dev/$PROJECT/demok8/$JOB

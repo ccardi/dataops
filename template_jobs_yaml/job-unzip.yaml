@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-unzip-large-test-100-4
+spec:
+  template:
+    spec:
+      containers:
+      - name: job-unzip
+        image: europe-west1-docker.pkg.dev/pod-fr-retail/demok8/demo_k8_jobs_unzip_gcs
+        command: ["python3",  "/gcs_unzip.py"]
+        resources:
+          requests:
+              memory: "2Gi"
+              cpu: "1"
+          limits:
+              memory: "2Gi"
+              cpu: "2"
+        env:
+        - name: BUCKET_NAME
+          value: "pod-fr-retail-demo"
+        - name: ZIP_PATH
+          value: "train-images.zip"
+        - name: CPU_INT
+          value: "100"
+      restartPolicy: Never

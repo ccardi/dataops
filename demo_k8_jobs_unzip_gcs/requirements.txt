@@ -1,3 +1,2 @@
 google-cloud-storage
-zipfile
-io
+zipfile36
