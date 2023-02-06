@@ -44,3 +44,10 @@ PROJECT=pod-fr-retail
 JOB=demo_k8_jobs_bqs_gcs
 gcloud config set project $PROJECT
 gcloud builds submit --tag europe-west1-docker.pkg.dev/$PROJECT/demok8/$JOB
+
+# Build k8 Jobs - unzip
+cd demo_virtualshop_orders
+PROJECT=pod-fr-retail
+JOB=demo_virtualshop_orders
+gcloud config set project $PROJECT
+gcloud builds submit --tag europe-west1-docker.pkg.dev/$PROJECT/demok8/$JOB

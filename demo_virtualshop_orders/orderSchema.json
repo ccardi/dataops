@@ -1,0 +1,94 @@
+[
+    {
+        "name": "date",
+        "mode": "NULLABLE",
+        "type": "STRING"
+    },
+    {
+        "name": "city",
+        "mode": "NULLABLE",
+        "type": "STRING"
+    },
+    {
+        "name": "age",
+        "mode": "NULLABLE",
+        "type": "STRING"
+    },
+    {
+        "name": "gender",
+        "mode": "NULLABLE",
+        "type": "STRING"
+    },
+    {
+        "name": "livraison",
+        "mode": "NULLABLE",
+        "type": "STRING"
+    },
+    {
+        "name": "paiement",
+        "mode": "NULLABLE",
+        "type": "STRING"
+    },
+    {
+        "name": "orderId",
+        "mode": "NULLABLE",
+        "type": "STRING"
+    },
+    {
+        "name": "orderProductsQty",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "orderItemsQty",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "orderTotalPrice",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "orderDetails",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "uniq_id",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "product_name",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "product_category_tree",
+                "type": "STRING"
+            },
+            {
+                "name": "retail_price",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "quantity",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "price_total",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "brand",
+                "type": "STRING"
+            }
+        ]
+    }
+]

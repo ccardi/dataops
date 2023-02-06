@@ -1,0 +1,3 @@
+{"paiement":"carte","weight":55}
+{"paiement":"cheque","weight":5}
+{"paiement":"espece","weight":40}

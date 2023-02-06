@@ -1,0 +1,39 @@
+cd demo_Summit
+
+#Create a topic
+gcloud beta pubsub topics create orders_stream
+
+
+gcloud container --project "pod-fr-retail" clusters create "iot" --zone "europe-west1-c" --machine-type "n1-standard-4" --image-type "GCI" --disk-size "50" --num-nodes "3" --network "default" --enable-cloud-logging --enable-autoscaling --min-nodes "3" --max-nodes "10"
+kubectl create secret generic pubsub-key --from-file=key.json=pod-fr-retail-ec59ab5ee4f4.json
+
+#Create Bigquery table
+bq mk -t demo.virtualshop_orders_stream ./orderSchema.json
+
+
+#run dataflow template Pubsub To BigQuery
+gcloud dataflow jobs run orders-stream \
+        --gcs-location gs://pod-fr-retail-dataflow-template/template_file \
+        --parameters topic=projects/pod-fr-retail/topics/orders_stream,table=pod-fr-retail:demo.virtualshop_orders_stream \
+        --zone=europe-west1-c \
+        --region=europe-west1 \
+        --max-workers=5
+
+-----------------------------       
+
+kubectl create -f pubsub-jobs.yaml
+kubectl scale  --replicas=50 jobs/shop-stream
+
+
+
+
+
+
+
+
+---------------------------------
+#Cleaning
+kubectl delete jobs/shop-stream
+gcloud dataflow jobs cancel orders-stream
+bq rm -f -t demo.virtualshop_orders_stream
+gcloud beta pubsub topics delete orders_stream
