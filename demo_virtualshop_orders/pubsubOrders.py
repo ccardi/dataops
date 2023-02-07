@@ -25,23 +25,23 @@ def repartition (file,var):
 	return temparray
 	
 #create repartition variables
-age = repartition ('repartition_age.json',"age")
-gender = repartition ('repartition_gender.json',"gender")
-livraison = repartition ('repartition_takeaway.json',"livraison")
-paiement= repartition ('repartition_paiement.json',"paiement")
+age = repartition ('/repartition_age.json',"age")
+gender = repartition ('/repartition_gender.json',"gender")
+livraison = repartition ('/repartition_takeaway.json',"livraison")
+paiement= repartition ('/repartition_paiement.json',"paiement")
 
 #load products catalog
 products = []
-for line in open('refproduct.json', 'r'):
+for line in open('/refproduct.json', 'r'):
     products.append(json.loads(line));
 
 #load products catalog
-with open('repartition_panier.json') as data_file:    
+with open('/repartition_panier.json') as data_file:    
     avgBasketCity = json.load(data_file)
     
 #load trendsbyCity
 trends =[]
-for line in open('trendsByCity.json', 'r'):
+for line in open('/trendsByCity.json', 'r'):
 	trends.append(json.loads(line))
 
 n=0
