@@ -5,6 +5,8 @@ metadata:
 spec:
   template:
     spec:
+      nodeSelector:
+        cloud.google.com/gke-accelerator: nvidia-tesla-t4
       containers:
       - name: pandas-to-bq-basic3
         image: europe-west1-docker.pkg.dev/pod-fr-retail/demok8/demo_k8_jobs_basic
@@ -13,9 +15,11 @@ spec:
             requests:
                 memory: "10Mi"
                 cpu: "100m"
+                nvidia.com/gpu: "2"
             limits:
                 memory: "10Mi"
                 cpu: "100m"
+                nvidia.com/gpu: "2"
         env:
         - name: TEST_VARIABLE
           value: "hello new job 2"

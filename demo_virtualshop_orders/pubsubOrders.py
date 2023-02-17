@@ -90,7 +90,6 @@ for trend in trends:
 	    data= json.dumps(order)
 	    data= data.encode('utf-8')
 	    publish_client.publish(topic, data=data)
-	    #time.sleep(0.001)
-	    #pprint(order)
+
 pprint(n)
 pprint("All Done")
