@@ -90,8 +90,8 @@ for trend in trends:
         if n % 1000 == 0:
             pprint(str(n)" events sent")
         data= json.dumps(order)
-	    data= data.encode('utf-8')
-	    publish_client.publish(topic, data=data)
+        data= data.encode('utf-8')
+        publish_client.publish(topic, data=data)
 
 pprint(n)
 pprint("All Done")
