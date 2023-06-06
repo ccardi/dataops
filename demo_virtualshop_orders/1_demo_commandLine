@@ -14,7 +14,7 @@ bq mk -t demo.virtualshop_orders_stream ./orderSchema.json
 #run dataflow template Pubsub To BigQuery
 gcloud dataflow jobs run orders-stream \
         --gcs-location gs://pod-fr-retail-dataflow-template/template_file \
-        --parameters topic=projects/pod-fr-retail/topics/orders_stream,table=pod-fr-retail:demo.virtualshop_orders_stream \
+        --parameters topic=projects/pod-fr-retail/topics/orders_stream,table=pod-fr-retail:supply_demo.virtualshop_orders_stream \
         --zone=europe-west1-c \
         --region=europe-west1 \
         --max-workers=5
