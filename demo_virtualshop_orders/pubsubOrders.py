@@ -84,14 +84,13 @@ for trend in trends:
 	        ,"orderTotalPrice":str(orderTotalPrice)
 	        ,"orderDetails":cart
 	    }
-
 	    ordersTotal=ordersTotal+orderTotalPrice
 	    n=n+1
-        if n % 1000 == 0:
-            pprint(str(n)" events sent")
-        data= json.dumps(order)
-        data= data.encode('utf-8')
-        publish_client.publish(topic, data=data)
+	    if n % 1000 == 0 :
+						pprint(str(n) + " events sent")	
+	    data= json.dumps(order)
+	    data= data.encode('utf-8')
+	    publish_client.publish(topic, data=data)
 
 pprint(n)
 pprint("All Done")
