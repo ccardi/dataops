@@ -1,4 +1,5 @@
 google-cloud-bigquery
 pandas
-pandas_gbq
 lxml
+fsspec
+gcsfs
