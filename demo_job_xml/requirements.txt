@@ -3,3 +3,4 @@ pandas
 lxml
 fsspec
 gcsfs
+pandas-gbq
