@@ -51,3 +51,9 @@ PROJECT=pod-fr-retail
 JOB=demo_virtualshop_orders
 gcloud config set project $PROJECT
 gcloud builds submit --tag europe-west1-docker.pkg.dev/$PROJECT/demok8/$JOB
+
+
+PROJECT=pod-fr-retail
+JOB=demo_job_xml
+gcloud config set project $PROJECT
+gcloud builds submit --tag europe-west1-docker.pkg.dev/$PROJECT/demok8/$JOB

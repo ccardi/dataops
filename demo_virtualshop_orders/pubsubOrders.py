@@ -5,9 +5,12 @@ import random
 from random import randint
 import time
 import datetime
+import os
+import  psutil
+
 
 publish_client = pubsub.PublisherClient()
-topic = 'projects/pod-fr-retail/topics/orders_stream'
+topic = os.environ['PUBSUB_TOPIC'] #'projects/pod-fr-retail/topics/orders_stream'
 
 def random_with_N_digits(n):
     range_start = 10**(n-1)
@@ -87,7 +90,10 @@ for trend in trends:
 	    ordersTotal=ordersTotal+orderTotalPrice
 	    n=n+1
 	    if n % 1000 == 0 :
-						pprint(str(n) + " events sent")	
+						pprint(str(n) + " events sent")
+						process = psutil.Process()
+						pprint(process.memory_info().rss) 
+							
 	    data= json.dumps(order)
 	    data= data.encode('utf-8')
 	    publish_client.publish(topic, data=data)

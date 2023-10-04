@@ -1,4 +1,6 @@
-cd demo_Summit
+cd demo_virtualshop_orders
+
+gcloud dataflow jobs run pubsub-to-bq --gcs-location gs://dataflow-templates-europe-west1/latest/PubSub_to_BigQuery --region europe-west1 --staging-location gs://retail-dataflow/temp --additional-experiments enable_prime --additional-user-labels {} --parameters inputTopic=projects/retail-cpg-luxury/topics/orders_stream,outputTableSpec=retail-cpg-luxury:retail_demo.virtualshop_orders_stream
 
 #Create a topic
 gcloud beta pubsub topics create orders_stream
